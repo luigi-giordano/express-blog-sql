@@ -9,14 +9,12 @@ const checkTime = require('./middlewares/checkTime');
 const errorsHandler = require('./middlewares/errorsHandler');
 const notFound = require('./middlewares/notFound');
 
+//import router
+const articlesRouter = require('./routes/articles')
+
 //middleware checktime
 app.use(checkTime);
 
-//middleware errorsHandler
-app.use(errorsHandler);
-
-//middleware notFound
-app.use(notFound);
 
 //middleware assets static
 app.use(express.static('public'));
@@ -28,6 +26,15 @@ app.use(express.json());
 app.get('/', (req, res) => {
   res.send('Server del Blog')
 })
+
+//rotta articoli
+app.use('/articles', articlesRouter)
+
+//middleware errorsHandler
+app.use(errorsHandler);
+
+//middleware notFound
+app.use(notFound);
 
 //ascolto porta
 app.listen(port, () => {
