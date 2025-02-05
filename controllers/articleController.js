@@ -4,7 +4,14 @@ const connection = require('../data/db')
 
 
 const index = (req, res) => {
-  res.send('Server Articoli')
+  const sql = 'SELECT * FROM articles';
+
+  //query al db
+  connection.query(sql, (err, results) => {
+    if (err) return res.status(500).json({ error: 'Query al database fallita' })
+    res.json(results)
+  })
+
 }
 
 const show = (req, res) => {
