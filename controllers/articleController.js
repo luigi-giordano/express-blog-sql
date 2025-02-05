@@ -8,12 +8,10 @@ const index = (req, res) => {
 
   //query al db
   connection.query(sql, (err, results) => {
-    console.log(err);
     if (err) return res.status(500).json({ error: 'Query al database fallita' })
 
     res.json(results);
   })
-
 }
 
 const show = (req, res) => {
@@ -41,7 +39,12 @@ const modify = (req, res) => {
 const destroy = (req, res) => {
 
   const id = req.params.id
-  res.send(`Eliminazione Articolo ${id}`)
+  const sql = ' DELETE FROM posts WHERE id = ?';
+
+  connection.query(sql, [id], (err) => {
+    if (err) return res.status(500).json({ error: 'Eliminazione articolo fallita' })
+    res.sendStatus(204);
+  })
 }
 
 module.exports = {
