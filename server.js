@@ -1,6 +1,7 @@
 const { log } = require('console');
 const express = require('express');
 const app = express();
+const router = require('./routes/articles')
 
 const port = 3000;
 
