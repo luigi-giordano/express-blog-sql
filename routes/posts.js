@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 //importazione controller
-const articlesController = require('../controllers/postController')
+const postController = require('../controllers/postController')
 
 //rotte crud per gli articoli
 //index
