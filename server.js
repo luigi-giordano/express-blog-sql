@@ -1,4 +1,4 @@
-const { log } = require('console');
+
 const express = require('express');
 const app = express();
 
@@ -13,7 +13,7 @@ const notFound = require('./middlewares/notFound');
 const articlesRouter = require('./routes/articles')
 
 //middleware checktime
-app.use(checkTime);
+// app.use(checkTime);
 
 
 //middleware assets static

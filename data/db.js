@@ -1,5 +1,5 @@
 const mysql = require('mysql2');
-const { log } = require('node:console');
+
 
 const connection = mysql.createConnection({
   host: 'localhost',

@@ -1,5 +1,5 @@
 //import connection db
-const { log } = require('node:console');
+
 const connection = require('../data/db')
 
 
