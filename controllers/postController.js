@@ -20,31 +20,31 @@ const show = (req, res) => {
 
   connection.query(sql, [id], (err, results) => {
     if (err) return res.status(500).json({ error: 'Query al database fallita' })
-    if (results.lenght === 0) return res.status(404).json({ error: 'Articolo non trovato' })
+    if (results.lenght === 0) return res.status(404).json({ error: 'Post non trovato' })
     console.log(results);
 
 
-    const article = results[0];
+    const post = results[0];
 
-    res.json(article);
+    res.json(post);
   })
 
 }
 
 const store = (req, res) => {
-  res.send('Creazione Articolo')
+  res.send('Creazione Post')
 }
 
 const update = (req, res) => {
 
   const id = req.params.id
-  res.send(`Modifica Articolo ${id}`)
+  res.send(`Modifica post numero ${id}`)
 }
 
 const modify = (req, res) => {
 
   const id = req.params.id
-  res.send(`Modifica parziale Articolo ${id}`)
+  res.send(`Modifica parziale Post numero ${id}`)
 }
 
 const destroy = (req, res) => {
@@ -53,8 +53,8 @@ const destroy = (req, res) => {
   const sql = ' DELETE FROM posts WHERE id = ?';
 
   connection.query(sql, [id], (err) => {
-    if (err) return res.status(500).json({ error: 'Eliminazione articolo fallita' })
-    res.status(200).json({ message: 'Articolo eliminato con successo' });
+    if (err) return res.status(500).json({ error: 'Eliminazione Post fallita' })
+    res.status(200).json({ message: 'Post eliminato con successo' });
   })
 }
 

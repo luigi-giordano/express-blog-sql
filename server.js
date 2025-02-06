@@ -10,7 +10,7 @@ const errorsHandler = require('./middlewares/errorsHandler');
 const notFound = require('./middlewares/notFound');
 
 //import router
-const articlesRouter = require('./routes/articles')
+const postsRouter = require('./routes/posts')
 
 //middleware checktime
 // app.use(checkTime);
@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
 })
 
 //rotta articoli
-app.use('/articles', articlesRouter)
+app.use('/posts', postsRouter)
 
 //middleware errorsHandler
 app.use(errorsHandler);
